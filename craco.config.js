@@ -8,14 +8,14 @@ module.exports = {
         crypto: require.resolve('crypto-browserify'),
         stream: require.resolve('stream-browserify'),
         buffer: require.resolve('buffer'),
-        process: require.resolve('process/browser'),
+        process: require.resolve('process/browser.js'),
       };
       
       webpackConfig.plugins = [
         ...webpackConfig.plugins,
         new webpack.ProvidePlugin({
           Buffer: ['buffer', 'Buffer'],
-          process: 'process/browser',
+          process: 'process/browser.js',
         }),
       ];
       

@@ -5,7 +5,7 @@ import { Program, AnchorProvider, web3, Idl } from '@coral-xyz/anchor';
 import { toast } from 'react-toastify';
 import MemoForm from './MemoForm';
 import MemoHistory from './MemoHistory';
-import idl from '../idl/anchor_spl_memo.json';
+import { IDL } from '../types/anchor_spl_memo';
 
 const PROGRAM_ID = new web3.PublicKey('2p1eq5RNKv4MrESEPtA9za96diQnRHxLd48gz33Yq7r4');
 const MEMO_PROGRAM_ID = new web3.PublicKey('MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcHr');
@@ -20,7 +20,7 @@ export interface MemoTransaction {
 const MemoApp: React.FC = () => {
   const { connection } = useConnection();
   const wallet = useWallet();
-  const [program, setProgram] = useState<Program | null>(null);
+  const [program, setProgram] = useState<Program<Idl> | null>(null);
   const [memos, setMemos] = useState<MemoTransaction[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -31,7 +31,7 @@ const MemoApp: React.FC = () => {
         wallet as any,
         { commitment: 'confirmed' }
       );
-      const program = new Program(idl as Idl, PROGRAM_ID, provider);
+      const program = new Program(IDL as Idl, provider);
       setProgram(program);
     } else {
       setProgram(null);
