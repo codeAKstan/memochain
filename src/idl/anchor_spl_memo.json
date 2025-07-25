@@ -1,0 +1,31 @@
+{
+  "version": "0.1.0",
+  "name": "anchor_spl_memo",
+  "address": "2p1eq5RNKv4MrESEPtA9za96diQnRHxLd48gz33Yq7r4",
+  "metadata": {
+    "address": "2p1eq5RNKv4MrESEPtA9za96diQnRHxLd48gz33Yq7r4"
+  },
+  "instructions": [
+    {
+      "name": "sendMemo",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "memoProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "memo",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}
