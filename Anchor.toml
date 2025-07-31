@@ -1,4 +1,5 @@
 [toolchain]
+anchor_version = "0.31.1"
 
 [features]
 resolution = true
@@ -7,11 +8,14 @@ skip-lint = false
 [programs.localnet]
 anchor_spl_memo = "2p1eq5RNKv4MrESEPtA9za96diQnRHxLd48gz33Yq7r4"
 
+[programs.devnet]
+anchor_spl_memo = "2p1eq5RNKv4MrESEPtA9za96diQnRHxLd48gz33Yq7r4"
+
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "Devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
